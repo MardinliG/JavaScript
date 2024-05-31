@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Javascript</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#"><img src="img/logo.png" alt="" class="logo"></a>
+            <ul>
+                <li><a href="">Accueil</a></li>
+                <li><a href="#jeux">Jeux</a></li>
+                <li><a href="">Classement</a></li>
+                <li><a href="">Connexion</a></li>
+            </ul>
+            <!---<div class="menu-icon"><i class="fas fa-bars menu-icon"></i></div>--->
+        </nav>
+    </header>
+
+    <section class="text">
+        <h1>Javascript Jeux <span class="auto-typing"></span></h1>
+        <p>Bonjour à tous <br>
+        Vous voici sur notre page web interactive permettant aux utilisateurs de jouer à différents jeux sur navigateur. <br>
+        Venez jouez à des jeux tels que le Snake 🐍, le Morpion ⭕❌, le Calculateur de vitesse de frappe au clavier 🏁🏃, le Tri à bulle et bien d'autres.</p>
+    <!-- <a href="#">Me contacter</a> <a href="#">Salam</a> -->
+    </section>
+
+    <div class="overlay">
+    </div>
+    <div class="overlay2">
+        <h1 class="Jeux">Jeux</h1>
+    <div class ="list">
+        <div class="object">
+            <a href="dactylographie.html"><img src ="img/back.png"></a>
+            <h1>Calculateur de vitesse de frappe</h1>
+            <p>Ce jeux calcule la vitesse de frappe que vous prenez pour écrire un texte à l'aide du clavier</p>
+        </div>
+        <div class="object">
+            <a href="Morpion.html" ><img src="img/back.png"> </a>
+            <h1>Morpion</h1>
+            <p>Le jeux du morpion le vrai !</p>
+        </div>
+        <div class="object">
+            <a href="Snake.html" ><img src="img/back.png"></a>
+            <h1>Snake</h1>
+            <p>snake serpent en mode serpent</p>
+        </div>
+        <div class="object">
+            <a href="" ><img src="img/back.png"></a>
+            <h1>Tri a bulles</h1>
+            <p>en mode triage</p>
+        </div>
+        <div class="object">
+            <a href="" ><img src="img/back.png"></a>
+            <h1>Memory test</h1>
+            <p>memorise bien le frere</p>
+        </div>
+        <div class="object">
+            <a href="" ><img src="img/back.png"></a>
+            <h1>Piano</h1>
+            <p>régale toi mon frérot deviens Wolfgang Amadeus Mozart</p>
+        </div>
+    </div>
+        </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        let typed = new Typed('.auto-typing',{
+            strings: ['Morpion','Snake','Dactylographie','Tri à bulles','Memory test','Piano'],
+            typeSpeed: 100,
+            backSpeed: 100,
+            loop:true,
+            fadeOut: true,
+            fadeOutClass: 'typed-fade-out',
+            fadeOutDelay: 500,
+        })
+    </script>
+</body>
+</html>

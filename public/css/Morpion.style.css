@@ -1,0 +1,147 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.container {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 80px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    border-radius: 15px;
+    width: auto;
+    max-width: 400px; /* Ajustez la largeur maximale au besoin */
+    margin: auto;
+    margin-top: 50px; /* Pour centrer verticalement, si contenu dans un flex container */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.container:hover {
+    transform: translateY(-10px); /* Effet léger de soulèvement */
+    box-shadow: 0 6px 30px rgba(0,0,0,0.25); /* Ombre plus prononcée pour un effet 3D */
+}
+h1 {
+    color: #333;
+    margin-bottom: 10px;
+}
+.player-display {
+    margin: 20px 0;
+    font-size: 18px;
+    color: #555;
+}
+.game-mode button {
+    background-color: #808080;
+    border: none;
+    color: #ffffff;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.game-mode button:hover {
+    background-color: #808080;
+}
+#gameBoard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 300px;
+}
+.cell {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    background-color: #fff; /* Fond blanc pour la visibilité */
+    border: 2px solid #000; /* Contour plus épais pour une délimitation claire */
+    border-radius: 10px; /* Coins arrondis pour un look moderne */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold; /* Rendre le texte plus lisible */
+    color: #333; /* Couleur de texte foncée pour le contraste */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16); /* Ombre douce pour de la profondeur */
+}
+.cell:hover {
+    background-color: #f3f3f3; /* Un léger changement de couleur au survol */
+    transform: translateY(-3px); /* Effet de soulèvement pour indiquer l'interactivité */
+    box-shadow: 0 5px 12px rgba(0,0,0,0.2); /* Ombre plus prononcée au survol */
+}
+.cell:active {
+    background-color: #e1e1e1; /* Un changement de couleur au clic */
+    transform: translateY(-1px); /* Un léger enfoncement lors du clic */
+    box-shadow: 0 2px 3px rgba(0,0,0,0.15); /* Ombre réduite lors du clic */
+}
+.cell:empty:before {
+    content: "•"; /* Un marqueur pour indiquer une cellule vide */
+    color: transparent; /* Rendre le marqueur invisible mais conserve l'espace */
+    font-size: 0.5em;
+}
+/* Ajout pour améliorer l'accessibilité */
+.cell:focus {
+    outline: none; /* Supprime l'outline par défaut pour la cohérence visuelle */
+    border-color: #b50000; /* Couleur de bordure pour l'élément actif/focus */
+}
+.message {
+    color: red;
+    margin-top: 10px;
+}
+.hidden {
+    display: none;
+}
+.game-mode-selector {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.mode-option {
+    background: #f3f3f3;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.mode-option:hover {
+    background-color: #e1e1e1;
+}
+/* Cacher visuellement les boutons radio mais les rendant toujours fonctionnels */
+.mode-option input[type="radio"] {
+    display: none;
+}
+/* Style pour le texte lorsque le mode est sélectionné */
+.mode-option input[type="radio"]:checked + span {
+    font-weight: bold;
+    color: #4f4f4f;
+}
+.game-mode-selector {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.mode-option {
+    background: #f3f3f3;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.mode-option:hover {
+    background-color: #e1e1e1;
+}
+/* Cacher visuellement les boutons radio mais les rendant toujours fonctionnels */
+.mode-option input[type="radio"] {
+    display: none;
+}
+/* Style pour le texte lorsque le mode est sélectionné */
+.mode-option input[type="radio"]:checked + span {
+    font-weight: bold;
+    color: #4f4f4f;
+}

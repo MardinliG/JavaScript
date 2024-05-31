@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Jeu du Morpion</title>
+    <link rel="stylesheet" href="css/morpion.style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Jeu du Morpion</h1>
+    <div id="playerDisplay" class="player-display">Joueur actuel : X</div>
+    <div id="gameMode" class="game-mode-selector">
+        <label class="mode-option">
+            <input type="radio" name="gameMode" value="pvp" checked onclick="startGame('pvp')">
+            1 contre 1
+        </label>
+        <label class="mode-option">
+            <input type="radio" name="gameMode" value="pvc" onclick="startGame('pvc')">
+            Joueur contre Ordinateur
+        </label>
+    </div>
+    <div id="message" class="message hidden"></div> <!-- Zone pour les messages d'erreur -->
+    <div id="gameBoard" class="game-board hidden">
+        <div class="row">
+            <button class="cell" onclick="makeMove(this, 0)"></button>
+            <button class="cell" onclick="makeMove(this, 1)"></button>
+            <button class="cell" onclick="makeMove(this, 2)"></button>
+        </div>
+        <div class="row">
+            <button class="cell" onclick="makeMove(this, 3)"></button>
+            <button class="cell" onclick="makeMove(this, 4)"></button>
+            <button class="cell" onclick="makeMove(this, 5)"></button>
+        </div>
+        <div class="row">
+            <button class="cell" onclick="makeMove(this, 6)"></button>
+            <button class="cell" onclick="makeMove(this, 7)"></button>
+            <button class="cell" onclick="makeMove(this, 8)"></button>
+        </div>
+    </div>
+    <!-- Ecran de victoire TEST -->
+    <div id="winScreen" class="end-screen hidden">
+        <h2>Victoire !</h2>
+        <p>Félicitations, vous avez gagné !</p>
+        <button onclick="resetGame()">Rejouer</button>
+    </div>
+    <!-- Ecran de défaite -->
+    <div id="loseScreen" class="end-screen hidden">
+        <h2>Défaite...</h2>
+        <p>Dommage, vous avez perdu. Tentez une autre fois !</p>
+        <button onclick="resetGame()">Rejouer</button>
+    </div>
+    <!-- Ecran d'égalité -->
+    <div id="drawScreen" class="end-screen hidden">
+        <h2>Égalité !</h2>
+        <p>Match nul. Essayez de nouveau !</p>
+        <button onclick="resetGame()">Rejouer</button>
+    </div>
+</div>
+<script src="js/morpion.js"></script>
+</body>
+</html>
