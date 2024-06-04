@@ -7,7 +7,8 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     position: relative;
-}
+    background-color: #0F131F;
+    }
 
 .container {
     text-align: center;
@@ -37,7 +38,7 @@ body {
     width: 50px;
     height: 50px;
     margin: 0 5px;
-    background-color: steelblue;
+    background-color: #495993;
     border-radius: 50%;
     color: white;
     font-size: 18px;
@@ -69,4 +70,17 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     margin: 0;
+}
+h1{
+    text-align: center;
+    color: white;
+}
+button {
+    background:    #333333;
+    border-radius: 1000px;
+    padding:       13.3px 29.925px;
+    color:         white;
+    display:       inline-block;
+    font:          normal bold 17.29px/1 "Noto Sans", sans-serif;
+    text-align:    center;
 }
