@@ -1,0 +1,72 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    position: relative;
+}
+
+.container {
+    text-align: center;
+}
+
+#controls {
+    margin-bottom: 20px;
+}
+
+#number-input {
+    padding: 5px;
+    margin-right: 10px;
+}
+
+#array-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    margin-bottom: 20px;
+}
+
+.bubble {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    margin: 0 5px;
+    background-color: steelblue;
+    border-radius: 50%;
+    color: white;
+    font-size: 18px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+#success-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 400px;
+    height: 400px;
+}
+
+#success-card p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+}

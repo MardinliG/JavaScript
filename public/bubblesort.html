@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Sort Animation</title>
+    <link rel="stylesheet" href="css/bubblesort.css">
+</head>
+<body>
+    <div class="container">
+        <div id="controls">
+            <input type="text" id="number-input" placeholder="Enter numbers separated by spaces">
+            <button onclick="setCustomArray()">Set Numbers</button>
+            <button onclick="createRandomArray(10)">Random Numbers</button>
+        </div>
+        <div id="array-container"></div>
+        <button onclick="bubbleSort()">Start Bubble Sort</button>
+        <div id="success-card" class="hidden">
+            <h2> Sort Successfull ! </h2>
+            <p id="success-message"></p>
+        </div>
+    </div>
+    <script src="js/bubblesort.js"></script>
+</body>
+</html>
