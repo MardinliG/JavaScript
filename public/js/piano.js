@@ -3,10 +3,10 @@ volumeSlider = document.querySelector(".volume-slider input"),
 keysCheckbox = document.querySelector(".keys-checkbox input");
 
 let allKeys = [],
-audio = new Audio(`song/a.wav`); // by default, audio src is "a" tune
+audio = new Audio(`js/song/a.wav`); // by default, audio src is "a" tune
 
 const playTune = (key) => {
-    audio.src = `song/${key}.wav`; // passing audio src based on key pressed 
+    audio.src = `js/song/${key}.wav`; // passing audio src based on key pressed 
     audio.play(); // playing audio
 
     const clickedKey = document.querySelector(`[data-key="${key}"]`); // getting clicked key element
