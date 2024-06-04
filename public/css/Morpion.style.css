@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f9;
+    background-image: url(https://images.pexels.com/photos/2387793/pexels-photo-2387793.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,7 +9,7 @@ body {
 }
 .container {
     text-align: center;
-    background-color: #ffffff;
+    background-color: #495993;
     padding: 80px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.2);
     border-radius: 15px;
