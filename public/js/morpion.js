@@ -4,9 +4,68 @@ let board = ['', '', '', '', '', '', '', '', ''];
 let gameOver = false;
 
 function computerMove() {
-    let available = board.map((x, i) => x === '' ? i : null).filter(x => x !== null);
-    let randomMove = available[Math.floor(Math.random() * available.length)];
-    makeMove(document.querySelectorAll('.cell')[randomMove], randomMove);
+    const bestMove = getBestMove();
+    makeMove(document.querySelectorAll('.cell')[bestMove], bestMove);
+}
+
+function getBestMove() {
+    let bestValue = -Infinity;
+    let move = -1;
+    for (let i = 0; i < board.length; i++) {
+        if (board[i] === '') {
+            board[i] = 'O';
+            const moveValue = minimax(board, 0, false);
+            board[i] = '';
+            if (moveValue > bestValue) {
+                bestValue = moveValue;
+                move = i;
+            }
+        }
+    }
+    return move;
+}
+
+function minimax(board, depth, isMaximizing) {
+    const score = evaluate(board);
+    if (score !== 0) return score;
+    if (board.every(cell => cell !== '')) return 0;
+
+    if (isMaximizing) {
+        let bestValue = -Infinity;
+        for (let i = 0; i < board.length; i++) {
+            if (board[i] === '') {
+                board[i] = 'O';
+                bestValue = Math.max(bestValue, minimax(board, depth + 1, false));
+                board[i] = '';
+            }
+        }
+        return bestValue;
+    } else {
+        let bestValue = Infinity;
+        for (let i = 0; i < board.length; i++) {
+            if (board[i] === '') {
+                board[i] = 'X';
+                bestValue = Math.min(bestValue, minimax(board, depth + 1, true));
+                board[i] = '';
+            }
+        }
+        return bestValue;
+    }
+}
+
+function evaluate(board) {
+    const winConditions = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+        [0, 4, 8], [2, 4, 6]            // Diagonals
+    ];
+    for (const condition of winConditions) {
+        const [a, b, c] = condition;
+        if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+            return board[a] === 'O' ? 10 : -10;
+        }
+    }
+    return 0;
 }
 
 function checkWin() {
@@ -18,6 +77,7 @@ function checkWin() {
     return winConditions.some(condition =>
         condition.every(index => board[index] && board[index] === board[condition[0]]));
 }
+
 function showEndScreen(result) {
     const winScreen = document.getElementById('winScreen');
     const loseScreen = document.getElementById('loseScreen');
@@ -33,6 +93,7 @@ function showEndScreen(result) {
         drawScreen.classList.remove('hidden');
     }
 }
+
 function makeMove(cell, index) {
     if (gameOver) {
         displayMessage("La partie est terminée. Veuillez redémarrer le jeu.");
@@ -47,7 +108,7 @@ function makeMove(cell, index) {
     let win = checkWin();
     let draw = checkDraw();
     if (win) {
-        showEndScreen('win');
+        showEndScreen(currentPlayer === 'X' ? 'win' : 'lose');
         gameOver = true;
         return;
     } else if (draw) {
@@ -60,9 +121,11 @@ function makeMove(cell, index) {
         setTimeout(computerMove, 300); // Un léger délai avant que l'ordinateur ne joue
     }
 }
+
 function checkDraw() {
     return board.every(cell => cell !== '');
 }
+
 function startGame(mode) {
     // Réinitialise la grille et cache les écrans de fin de partie
     const endScreens = document.querySelectorAll('.end-screen');
@@ -75,6 +138,7 @@ function startGame(mode) {
     cells.forEach(cell => cell.textContent = '');
     // ...
 }
+
 function displayMessage(msg) {
     const messageElement = document.getElementById('message');
     messageElement.textContent = msg;
@@ -83,7 +147,9 @@ function displayMessage(msg) {
         messageElement.classList.add('hidden');
     }, 2000);
 }
+
 function resetGame() {
     startGame(gameMode); // Ou une autre logique de réinitialisation au besoin
 }
-//test
+
+startGame('pvp'); // Initialisation du jeu en mode PvP par défaut
