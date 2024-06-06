@@ -33,14 +33,16 @@ body {
   justify-content: space-between;
 }
 .play-board {
-  height: 100%;
+  height: 520px; /* Ajoutez une hauteur fixe */
   width: 100%;
   display: grid;
   background: #212837;
   grid-template: repeat(30, 1fr) / repeat(30, 1fr);
 }
 .play-board .food {
-  background: #FF003D;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .play-board .head {
   width: 100%;
@@ -65,4 +67,26 @@ body {
   width: calc(100% / 4);
   cursor: pointer;
   border-right: 1px solid #171B26;
+}
+
+/* Modal styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; 
+  text-align: center;
 }

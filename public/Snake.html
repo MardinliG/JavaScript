@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>Snake</title>
-    <link rel="stylesheet" href="css/Snake.css">
+    <link rel="stylesheet" href="css/snake.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <script src="js/Snake.js"></script>
+    <script src="js/snake.js" defer></script>
   </head>
   <body>
     <div class="wrapper">
@@ -21,11 +21,28 @@
         <i data-key="ArrowRight" class="fa-solid fa-arrow-right-long"></i>
         <i data-key="ArrowDown" class="fa-solid fa-arrow-down-long"></i>
       </div>
-      <button id="easy">Facile</button>
-      <button id="medium">Moyen</button>
-      <button id="hard">Difficile</button>
     </div>
-    <audio src="Bassem.mp3"></audio>
+
+    <!-- Difficulty selection modal -->
+    <div id="difficultyModal" class="modal">
+      <div class="modal-content">
+        <h2>Choisissez la difficulté</h2>
+        <button id="easy">Facile</button>
+        <button id="medium">Moyen</button>
+        <button id="hard">Difficile</button>
+      </div>
+    </div>
+
+    <!-- Game over modal -->
+    <div id="gameOverModal" class="modal">
+      <div class="modal-content">
+        <h2>Game Over!</h2>
+        <p>Score: <span id="finalScore">0</span></p>
+        <button id="replay">Rejouer</button>
+      </div>
+    </div>
+
+    <audio src="js/Bassem.mp3"></audio>
     <script>
       window.addEventListener("keydown", (e) => {
         const audio = document.querySelector("audio");

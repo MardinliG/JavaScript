@@ -10,12 +10,16 @@ let velocityX = 0, velocityY = 0;
 let snakeBody = [];
 let setIntervalId;
 let score = 0;
-let difficulty;
 let speed;
 
 // Getting high score from the local storage
 let highScore = localStorage.getItem("high-score") || 0;
 highScoreElement.innerText = `High Score: ${highScore}`;
+
+const difficultyModal = document.getElementById('difficultyModal');
+const gameOverModal = document.getElementById('gameOverModal');
+const finalScoreElement = document.getElementById('finalScore');
+const replayButton = document.getElementById('replay');
 
 const updateFoodPosition = () => {
     // Passing a random 1 - 30 value as food position
@@ -24,10 +28,10 @@ const updateFoodPosition = () => {
 }
 
 const handleGameOver = () => {
-    // Clearing the timer and reloading the page on game over
+    // Clearing the timer and showing the game over modal
     clearInterval(setIntervalId);
-    alert("Game Over! Press OK to replay...");
-    location.reload();
+    finalScoreElement.innerText = score;
+    gameOverModal.style.display = 'block';
 }
 
 const changeDirection = e => {
@@ -62,7 +66,14 @@ document.getElementById('hard').addEventListener('click', function() {
     startGame();
 });
 
+replayButton.addEventListener('click', function() {
+    location.reload();
+});
+
 function startGame() {
+    difficultyModal.style.display = 'none'; // Hide the difficulty modal
+    if (setIntervalId) clearInterval(setIntervalId); // Clear any existing intervals
+    updateFoodPosition();
     setIntervalId = setInterval(initGame, speed);
     document.addEventListener("keyup", changeDirection);
 }
@@ -72,7 +83,7 @@ controls.forEach(button => button.addEventListener("click", () => changeDirectio
 
 const initGame = () => {
     if(gameOver) return handleGameOver();
-    let html = `<div class="food" style="grid-area: ${foodY} / ${foodX}"></div>`;
+    let html = `<img src="img/food.png" class="food" style="grid-area: ${foodY} / ${foodX}">`;
 
     // Checking if the snake hit the food
     if(snakeX === foodX && snakeY === foodY) {
@@ -102,7 +113,7 @@ const initGame = () => {
     for (let i = 0; i < snakeBody.length; i++) {
         // Adding an img for the snake's head and a div for the rest of the body
         if (i === 0) {
-            html += `<img class="head" src="bassem.png" style="grid-area: ${snakeBody[i][1]} / ${snakeBody[i][0]}"></img>`;
+            html += `<img class="head" src="img/bassem.png" style="grid-area: ${snakeBody[i][1]} / ${snakeBody[i][0]}"></img>`;
         } else {
             html += `<div class="body" style="grid-area: ${snakeBody[i][1]} / ${snakeBody[i][0]}"></div>`;
         }
@@ -115,7 +126,7 @@ const initGame = () => {
     playBoard.innerHTML = html;
 }
 
-updateFoodPosition();
-chooseDifficulty();
-setIntervalId = setInterval(initGame, speed);
-document.addEventListener("keyup", changeDirection);
+// Show the difficulty selection modal when the page loads
+window.onload = function() {
+    difficultyModal.style.display = 'block';
+}
