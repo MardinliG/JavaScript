@@ -9,7 +9,7 @@ body {
 }
 .container {
     text-align: center;
-    background-color: #495993;
+    background-color: #0F131F;
     padding: 80px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.2);
     border-radius: 15px;
@@ -24,13 +24,13 @@ body {
     box-shadow: 0 6px 30px rgba(0,0,0,0.25); /* Ombre plus prononcée pour un effet 3D */
 }
 h1 {
-    color: #333;
+    color: white;
     margin-bottom: 10px;
 }
 .player-display {
     margin: 20px 0;
     font-size: 18px;
-    color: #555;
+    color: white;
 }
 .game-mode button {
     background-color: #808080;
@@ -55,7 +55,7 @@ h1 {
     width: 100px;
     height: 100px;
     margin: 5px;
-    background-color: #fff; /* Fond blanc pour la visibilité */
+    background-color:  #495993; /* Fond blanc pour la visibilité */
     border: 2px solid #000; /* Contour plus épais pour une délimitation claire */
     border-radius: 10px; /* Coins arrondis pour un look moderne */
     display: flex;
@@ -127,14 +127,16 @@ h1 {
     margin-bottom: 20px;
 }
 .mode-option {
-    background: #f3f3f3;
+    background: #495993;
     padding: 10px 20px;
     border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s;
+    color:antiquewhite;
+    font-style: bold;
 }
 .mode-option:hover {
-    background-color: #e1e1e1;
+    background-color: #0F131F;
 }
 /* Cacher visuellement les boutons radio mais les rendant toujours fonctionnels */
 .mode-option input[type="radio"] {
@@ -145,3 +147,18 @@ h1 {
     font-weight: bold;
     color: #4f4f4f;
 }
+h2{
+    color:white;
+}
+p{
+    color:white;
+}
+button {
+    background:    #333333;
+    border-radius: 1000px;
+    padding:       13.3px 29.925px;
+    color:         white;
+    font:          normal bold 17.29px/1 "Noto Sans", sans-serif;
+    text-align:    center;
+}
+

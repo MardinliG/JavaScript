@@ -80,7 +80,6 @@ button {
     border-radius: 1000px;
     padding:       13.3px 29.925px;
     color:         white;
-    display:       inline-block;
     font:          normal bold 17.29px/1 "Noto Sans", sans-serif;
     text-align:    center;
 }

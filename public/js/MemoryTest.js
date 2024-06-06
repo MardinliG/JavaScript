@@ -7,11 +7,15 @@ let userSelections = [];
 let level = 1;
 const baseTime = 3000; // Base time in milliseconds
 const minTime = 1000; // Minimum time in milliseconds
+let gameOver = false; // Variable to track the game over state
+let gameWon = false; // Variable to track if the game was won
 
 startButton.addEventListener('click', startGame);
 
 function startGame() {
     try {
+        gameOver = false; // Reset game over state
+        gameWon = false; // Reset game won state
         startButton.disabled = true;
         userSelections = [];
         board.innerHTML = '';
@@ -71,6 +75,8 @@ function hideActiveSquares() {
 
 function handleSquareClick(event) {
     try {
+        if (gameOver || gameWon) return; // Prevent interaction if game is over or won
+
         const index = parseInt(event.target.dataset.index);
         if (activeSquares.includes(index)) {
             if (!userSelections.includes(index)) {
@@ -95,6 +101,7 @@ function checkUserSelections() {
             level++;
             size = Math.min(10, size + 1);
             statusDiv.textContent = `Correct! Level up to ${level}`;
+            gameWon = true;
         } else {
             endGame();
         }
@@ -105,6 +112,7 @@ function checkUserSelections() {
 }
 
 function endGame() {
+    gameOver = true; // Set game over state
     statusDiv.textContent = `Game over! You reached level ${level}`;
     level = 1;
     size = 3;
