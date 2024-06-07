@@ -138,3 +138,7 @@ nav ul li a:hover{
     border-radius: 10px;
     border:gold;
 }
+
+body::-webkit-scrollbar{
+    display: none;
+}
