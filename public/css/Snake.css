@@ -71,7 +71,7 @@ body {
 
 /* Modal styles */
 .modal {
-  display: none; /* Hidden by default */
+  display: none; 
   position: fixed; 
   z-index: 1; 
   left: 0;
@@ -84,9 +84,20 @@ body {
 
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto; 
+  margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; 
-  text-align: center;
+  width: 50vmin;
+  height: 50vmin;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-boutton {
+  margin: 10px 0;
+  padding: 10px 20px;
+  border-radius: 5px;
 }
