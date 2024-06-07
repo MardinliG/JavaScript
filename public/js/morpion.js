@@ -4,8 +4,18 @@ let board = ['', '', '', '', '', '', '', '', ''];
 let gameOver = false;
 
 function computerMove() {
-    const bestMove = getBestMove();
-    makeMove(document.querySelectorAll('.cell')[bestMove], bestMove);
+    let move;
+    if (Math.random() < 0.5) {
+        move = getBestMove();
+    } else {
+        move = getRandomMove();
+    }
+    makeMove(document.querySelectorAll('.cell')[move], move);
+}
+
+function getRandomMove() {
+    const availableMoves = board.map((cell, index) => cell === '' ? index : null).filter(index => index !== null);
+    return availableMoves[Math.floor(Math.random() * availableMoves.length)];
 }
 
 function getBestMove() {
@@ -87,7 +97,7 @@ function showEndScreen(result) {
     drawScreen.classList.add('hidden');
     if (result === 'win') {
         winScreen.classList.remove('hidden');
-    } else if (result === 'lose') { // Si vous avez une logique pour perdre contre l'ordinateur
+    } else if (result === 'lose') {
         loseScreen.classList.remove('hidden');
     } else if (result === 'draw') {
         drawScreen.classList.remove('hidden');
@@ -117,6 +127,7 @@ function makeMove(cell, index) {
         return;
     }
     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    document.getElementById('playerDisplay').textContent = `Joueur actuel : ${currentPlayer}`;
     if (gameMode === 'pvc' && currentPlayer === 'O') {
         setTimeout(computerMove, 300); // Un léger délai avant que l'ordinateur ne joue
     }
@@ -136,7 +147,8 @@ function startGame(mode) {
     gameOver = false;
     const cells = document.querySelectorAll('.cell');
     cells.forEach(cell => cell.textContent = '');
-    // ...
+    document.getElementById('playerDisplay').textContent = `Joueur actuel : ${currentPlayer}`;
+    document.getElementById('gameBoard').classList.remove('hidden');
 }
 
 function displayMessage(msg) {
@@ -149,7 +161,7 @@ function displayMessage(msg) {
 }
 
 function resetGame() {
-    startGame(gameMode); // Ou une autre logique de réinitialisation au besoin
+    startGame(gameMode);
 }
 
-startGame('pvp'); // Initialisation du jeu en mode PvP par défaut
+startGame('pvp');
