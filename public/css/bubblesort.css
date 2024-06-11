@@ -7,7 +7,7 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     position: relative;
-    background-color: #0F131F;
+    background-image: url(https://images.pexels.com/photos/2387793/pexels-photo-2387793.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
     }
 
 .container {
@@ -21,6 +21,8 @@ body {
 #number-input {
     padding: 5px;
     margin-right: 10px;
+    border-radius: 10px;
+    padding: 13.3px 29.925px;
 }
 
 #array-container {
