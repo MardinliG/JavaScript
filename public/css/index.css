@@ -38,7 +38,8 @@ nav{
 }
 
 .logo {
-    width: 70px
+    width: 70px;
+    margin-left:10px;
 }
 
 .menu-icon{
@@ -137,4 +138,8 @@ nav ul li a:hover{
     margin-bottom: 10px;
     border-radius: 10px;
     border:gold;
+}
+
+body header nav a {
+    text-align: center;
 }
