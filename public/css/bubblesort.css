@@ -85,3 +85,8 @@ button {
     font:          normal bold 17.29px/1 "Noto Sans", sans-serif;
     text-align:    center;
 }
+.background{
+    background-color:#0F131F;
+    border-radius: 15px;
+    padding: 20px 20px;
+}
